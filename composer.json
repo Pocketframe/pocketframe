@@ -6,11 +6,11 @@
      "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/Pocketframe/pocketframe-framework"
+      "url": "https://github.com/Pocketframe/framework"
     }
   ],
     "require": {
-        "pocketframe/pocketframe-framework": "dev-main"
+        "pocketframe/framework": "dev-main"
     },
     "autoload": {
         "psr-4": {
