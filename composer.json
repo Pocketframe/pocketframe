@@ -1,0 +1,21 @@
+{
+    "name": "pocketframe/application",
+    "description": "PocketFrame application skeleton",
+    "type": "project",
+    "license": "MIT",
+    "require": {
+        "pocketframe/pocketframe-framework": "dev-main"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Asaba William",
+            "email": "asabawilliamdk@yahoo.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
