@@ -11,7 +11,7 @@
 
 use Core\Sessions\Session;
 
-require BASE_PATH . 'Core/functions.php';
+require BASE_PATH . 'vendor/pocketframe/framework/src/functions.php';
 
 
 if (!function_exists('login')) {
