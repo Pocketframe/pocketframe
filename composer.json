@@ -6,7 +6,7 @@
      "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/Pocketframe/framework"
+      "url": "../framework"
     }
   ],
     "require": {

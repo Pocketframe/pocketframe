@@ -9,9 +9,9 @@
  * anywhere in the application.
  */
 
-use Core\Sessions\Session;
+use Pocketframe\Sessions\Session;
 
-require BASE_PATH . 'vendor/pocketframe/framework/src/functions.php';
+require BASE_PATH . '/vendor/pocketframe/framework/src/functions.php';
 
 
 if (!function_exists('login')) {
