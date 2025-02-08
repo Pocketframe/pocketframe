@@ -3,12 +3,6 @@
     "description": "PocketFrame application skeleton",
     "type": "project",
     "license": "MIT",
-     "repositories": [
-    {
-      "type": "vcs",
-      "url": "../framework"
-    }
-  ],
     "require": {
         "pocketframe/framework": "dev-main"
     },
