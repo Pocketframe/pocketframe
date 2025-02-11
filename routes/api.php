@@ -1,4 +1,14 @@
 <?php
-// all api routes goes here
-$router->get('/api/v1/business-types', 'app/Controllers/API/v1/CustomerManagement/BusinessTypes/BusinessTypeController');
 
+/**
+ * Web Routes
+ * 
+ * Define your web routes here. Routes are registered with the Router
+ * and can be assigned middleware for request filtering.
+ * 
+ * Example:
+ * $router->get('/path', 'Controller@method');
+ * $router->post('/form', 'Controller@handle', [Middleware::class]);
+ */
+
+$router->get('/api/v1/posts', 'App\Controllers\API\v1\Posts\PostsController@index');
