@@ -5,7 +5,7 @@ Pocketframe is a PHP framework for building web applications.
 ## Installation
 
 ```bash
-composer create-project pocketframe/application demo-app --stability dev --no-install
+composer create-project pocketframe/application demo-app --stability dev
 ```
 
 ## Running the application
