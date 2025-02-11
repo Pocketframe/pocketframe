@@ -3,13 +3,9 @@
     "description": "PocketFrame application skeleton",
     "type": "project",
     "license": "MIT",
-     "repositories": [
-    {
-      "type": "vcs",
-      "url": "../framework"
-    }
-  ],
     "require": {
+        "php": "^8.2",
+        "ext-pdo": "*",
         "pocketframe/framework": "dev-main"
     },
     "autoload": {
