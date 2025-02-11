@@ -4,6 +4,8 @@
     "type": "project",
     "license": "MIT",
     "require": {
+        "php": "^8.2",
+        "ext-pdo": "*",
         "pocketframe/framework": "dev-main"
     },
     "autoload": {
