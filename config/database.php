@@ -5,9 +5,9 @@ return [
   'database' => [
     'host'           => env('DB_HOST', 'localhost'),
     'port'           => env('DB_PORT', '3306'),
-    'dbname'       => env('DB_DATABASE'),
-    'username'       => env('DB_USERNAME'),
-    'password'       => env('DB_PASSWORD'),
+    'dbname'       => env('DB_DATABASE', 'pocketframe'),
+    'username'       => env('DB_USERNAME', 'root'),
+    'password'       => env('DB_PASSWORD', ''),
     'charset'        => 'utf8mb4',
     'collation'      => 'utf8mb4_unicode_ci',
     'prefix'         => '',
