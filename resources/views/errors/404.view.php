@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>400 Bad Request - PocketFrame</title>
+    <title>404 Page Not Found - PocketFrame</title>
     <style>
         :root {
             --primary: #4f46e5;
@@ -71,9 +71,9 @@
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
         </svg>
 
-        <h1 class="error-code">400</h1>
+        <h1 class="error-code">404</h1>
         <p class="error-message">
-            Oops! The server couldn't understand your request.
+            The page you're looking for doesn't exist.
         </p>
         <a href="/" class="action-button">
             ← Return to Homepage
