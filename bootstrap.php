@@ -1,7 +1,7 @@
 <?php
 
-use App\Container\ContainerRegister;
 use Pocketframe\Container\Container;
+use App\Container\ContainerRegister;
 use Pocketframe\Container\ContainerRegister as PocketframeContainerRegister;
 use Pocketframe\Database\DB;
 use Pocketframe\Middleware\MiddlewareRegister\MiddlewareRegister;
