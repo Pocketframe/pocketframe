@@ -1,43 +1,38 @@
 <?php
 
+use App\Container\ContainerRegister;
 use Pocketframe\Container\Container;
-use Pocketframe\Database\Database;
+use Pocketframe\Container\ContainerRegister as PocketframeContainerRegister;
 use Pocketframe\Database\DB;
-use Pocketframe\Exceptions\Handler;
-use Pocketframe\Logger\Logger;
+use Pocketframe\Middleware\MiddlewareRegister\MiddlewareRegister;
 use Pocketframe\Routing\Router;
 
 $container = new Container();
-$router = new Router($container);
+$router    = new Router($container);
 
+require base_path('routes/web.php');
+require base_path('routes/api.php');
 
-$middlewareConfig = require config_path('middleware.php');
+load_env(base_path('.env'));
 
-// Register global middleware
-foreach ($middlewareConfig['global'] as $middleware) {
-    $router->addGlobalMiddleware($middleware);
-}
+/**
+ * Register middleware
+ */
+(new MiddlewareRegister())->register($router);
 
-// Register middleware groups
-$router->group(['middleware' => $middlewareConfig['groups']['web']], function () use ($router) {
-    require routes_path('web.php');
-});
+/**
+ * Register framework-level container bindings for core services
+ * like exception handling, database, and logging
+ */
+(new PocketframeContainerRegister())->register($container);
 
-$router->group(['middleware' => $middlewareConfig['groups']['api'], 'prefix' => 'api'], function () use ($router) {
-    require routes_path('api.php');
-});
+/**
+ * Register application-specific container bindings
+ * like custom services, repositories, and utilities
+ */
+(new ContainerRegister())->register($container);
 
-$container->bind('exceptionHandler', function () {
-    return new Handler();
-});
-
-$container->bind(Database::class, function () {
-    $config = require base_path('config/database.php');
-    return new Database($config['database']);
-});
-
-$container->bind(Logger::class, function () {
-    return new Logger();
-});
-
+/**
+ * Set the container for the database
+ */
 DB::setContainer($container);
