@@ -14,13 +14,13 @@
 - [Requests](#requests)
 - [Responses](#responses)
 - [Database](#database)
+- [Helper Functions](#helper-functions)
 - [Error Handling](#error-handling)
 - [Logging](#logging)
 - [Views](#views)
 - [Security](#security)
 <!-- - [Advanced Topics](#advanced-topics) -->
 <!-- - [Custom Middleware](#custom-middleware) -->
-- [Helper Functions](#helper-functions)
 - [Contributing](#contributing)
 
 ---
