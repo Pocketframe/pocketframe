@@ -1,11 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-declare(strict_types=1);
+// declare(strict_types=1);
 
-require __DIR__ . '/vendor/autoload.php'; // Adjust if needed
+// require __DIR__ . '/vendor/autoload.php'; // Adjust if needed
 
-use Pocketframe\Console\Application;
+// use Pocketframe\Console\Application;
 
-$app = new Application();
-$app->run();
+// $app = new Application();
+// $app->run();
