@@ -1,4 +1,6 @@
 vendor/
 .env
 
-logs/
+store/framework/*
+
+store/logs/*
