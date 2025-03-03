@@ -4,6 +4,7 @@ use Pocketframe\Container\Container;
 use App\Container\ContainerRegister;
 use Pocketframe\Container\ContainerRegister as PocketframeContainerRegister;
 use Pocketframe\Database\DB;
+use Pocketframe\Exceptions\ExceptionHandler;
 use Pocketframe\Middleware\MiddlewareRegister\MiddlewareRegister;
 use Pocketframe\Routing\Router;
 
@@ -14,6 +15,11 @@ require base_path('routes/web.php');
 require base_path('routes/api.php');
 
 load_env(base_path('.env'));
+
+
+set_exception_handler([ExceptionHandler::class, 'handle']);
+
+Container::setInstance($container);
 
 /**
  * Register middleware
