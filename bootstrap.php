@@ -42,3 +42,5 @@ Container::setInstance($container);
  * Set the container for the database
  */
 DB::setContainer($container);
+
+Container::setInstance($container);
