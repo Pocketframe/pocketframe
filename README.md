@@ -1300,6 +1300,7 @@ class PostController
   {
     return Response::view('posts.create');
   }
+
   public function store(Request $request)
   {
     // Logic goes here
@@ -1369,6 +1370,99 @@ If the validation fails, we can repopulate the form with the user's input by add
       ])
       ->failed();
 ```
+
+### Available validation rules
+Pocketframe provides a set of built-in validation rules that you can use to validate user input. Here are some of the most commonly used rules:
+
+- `required`: This rule ensures that the field is not empty.
+  **Example**:
+  ```php
+  'name' => ['required']
+  ```
+- `string`: This rule ensures that the field contains only strings.
+  **Example**:
+  ```php
+  'name' => ['string']
+  ```
+- `email`: This rule ensures that the field contains a valid email address.
+  **Example**:
+  ```php
+  'email' => ['email']
+  ```
+- `numeric`: This rule ensures that the field contains only numeric values.
+  **Example**:
+  ```php
+  'age' => ['numeric']
+  ```
+- `min`: This rule ensures that the field contains a minimum number of characters.
+
+  **Example**:
+  ```php
+  'password' => ['min:8']
+  ```
+- `max`: This rule ensures that the field contains a maximum number of characters.
+
+  **Example**:
+  ```php
+  'username' => ['max:20']
+  ```
+- `Unique`: This rule ensures that the field contains a unique value.
+
+  **Example**:
+  ```php
+  use Pocketframe\Validation\Rules\Unique;
+
+  'email' => [new Unique('users', 'email')]
+  ```
+
+- `date`: This rule ensures that the field contains a valid date.
+
+  **Example**:
+  ```php
+  'date_of_birth' => ['date']
+  ```
+
+- `image`: This rule ensures that the field contains a valid image file.
+
+  **Example**:
+  ```php
+  'avatar' => ['image']
+  ```
+- `nullable`: This rule allows the field to be empty.
+
+  **Example**:
+  ```php
+  'bio' => ['nullable']
+  ```
+
+- `lowercase`: This rule ensures that the field contains only lowercase characters.
+
+  **Example**:
+  ```php
+  'username' => ['lowercase']
+  ```
+
+- `uppercase`: This rule ensures that the field contains only uppercase characters.
+-
+  **Example**:
+  ```php
+  'username' => ['uppercase']
+  ```
+
+- `sometime`: This rule ensures that the field contains only alphanumeric characters.
+-
+  **Example**:
+  ```php
+  'username' => ['sometime', 'required']
+  ```
+
+- `file`: This rule ensures that the field contains a valid file.
+
+  **Example**:
+   ```php
+   'avatar' => ['file']
+   ```
+
 
 ## CLI
 Pocketframe provides a command-line interface (CLI) that allows you to perform various tasks, such as start the serve, creating new controllers, clearing cache, and more.

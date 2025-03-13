@@ -27,6 +27,14 @@ $commands = [
     'class' => \Pocketframe\Console\Commands\AddKeyCommand::class,
     'desc'  => 'Generate a new application key.'
   ],
+  'view:create'        => [
+    'class' => \Pocketframe\Console\Commands\CreateViewCommand::class,
+    'desc'  => 'Generate a new view file.'
+  ],
+  'store:link'        => [
+    'class' => \Pocketframe\Console\Commands\CreateStoreLinkCommand::class,
+    'desc'  => 'Create a symbolic link to the store directory.'
+  ],
   'help'               => [
     'class' => \Pocketframe\Console\Commands\HelpCommand::class,
     'desc'  => 'Display a list of all available commands.'
