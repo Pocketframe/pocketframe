@@ -1,6 +1,6 @@
 vendor/
 .env
 
+store/app/*
 store/framework/*
-
 store/logs/*
