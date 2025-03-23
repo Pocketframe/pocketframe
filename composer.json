@@ -1,21 +1,29 @@
 {
     "name": "pocketframe/application",
-    "description": "PocketFrame application skeleton",
+    "description": "Pocketframe is a lightweight yet powerful PHP framework designed to simplify modern web application development. With its intuitive structure, elegant syntax, and modular approach, Pocketframe helps developers build scalable, high-performance applications effortlessly.",
     "type": "project",
     "license": "MIT",
     "require": {
         "php": "^8.2",
         "ext-pdo": "*",
+        "ext-intl": "*",
+        "ext-mbstring": "*",
         "pocketframe/framework": "dev-main"
     },
+    "require-dev": {
+        "fakerphp/faker": "^2.0.x-dev"
+    },
     "autoload": {
-         "files": [
+        "files": [
             "config/database.php",
             "config/app.php",
             "app/helpers.php"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Database\\Schemas\\": "database/schemas/",
+            "Database\\Blueprints\\": "database/blueprints/",
+            "Database\\Planters\\": "database/planters/"
         }
     },
     "authors": [
