@@ -6,6 +6,7 @@ use Pocketframe\Container\ContainerRegister as PocketframeContainerRegister;
 use Pocketframe\Database\DB;
 use Pocketframe\Exceptions\ExceptionHandler;
 use Pocketframe\Middleware\MiddlewareRegister\MiddlewareRegister;
+use Pocketframe\PocketORM\Database\Connection;
 use Pocketframe\Routing\Router;
 
 $container = new Container();
@@ -37,6 +38,9 @@ Container::setInstance($container);
  * like custom services, repositories, and utilities
  */
 (new ContainerRegister())->register($container);
+
+Connection::configure();
+$pdo = Connection::getInstance();
 
 /**
  * Set the container for the database
