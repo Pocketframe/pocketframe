@@ -1,13 +1,15 @@
 {
+  "$schema": "https://getcomposer.org/schema.json",
     "name": "pocketframe/application",
     "description": "Pocketframe is a lightweight yet powerful PHP framework designed to simplify modern web application development. With its intuitive structure, elegant syntax, and modular approach, Pocketframe helps developers build scalable, high-performance applications effortlessly.",
     "type": "project",
+    "keywords": [
+        "pocketframe",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "ext-pdo": "*",
-        "ext-intl": "*",
-        "ext-mbstring": "*",
         "pocketframe/framework": "dev-main"
     },
     "require-dev": {
@@ -26,11 +28,25 @@
             "Database\\Planters\\": "database/planters/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php pocket add:key --ansi"
+        ]
+    },
     "authors": [
         {
             "name": "Asaba William",
             "email": "asabawilliamdk@yahoo.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
