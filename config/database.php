@@ -3,9 +3,10 @@ require BASE_PATH . '/vendor/pocketframe/framework/src/functions.php';
 
 return [
   'database' => [
+    'driver'         => env('DB_CONNECTION', 'sqlite'),
     'host'           => env('DB_HOST', 'localhost'),
     'port'           => env('DB_PORT', '3306'),
-    'dbname'       => env('DB_DATABASE', 'pocketframe'),
+    'database'       => env('DB_DATABASE', database_path('database.sqlite')),
     'username'       => env('DB_USERNAME', 'root'),
     'password'       => env('DB_PASSWORD', ''),
     'charset'        => 'utf8mb4',
