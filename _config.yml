@@ -1,0 +1,6 @@
+title: Pocketframe
+description: Pocketframe is a lightweight yet powerful PHP framework designed to simplify modern web application development. With its intuitive structure, elegant syntax, and modular approach, Pocketframe helps developers build scalable, high-performance applications effortlessly.
+remote_theme: pages-themes/architect@v0.2.0
+show_downloads: true
+plugins:
+  - jekyll-remote-theme
