@@ -6,4 +6,3 @@ plugins:
 color-scheme: auto/light/dark
 # logo: /public/images/logo/pocketframe.png
 favicon: true
-baseurl: "/docs"
