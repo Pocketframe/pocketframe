@@ -47,6 +47,6 @@
             "email": "asabawilliamdk@yahoo.com"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "prefer-stable": true
 }
