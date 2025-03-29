@@ -23,9 +23,9 @@
         ],
         "psr-4": {
             "App\\": "app/",
-            "Database\\Schemas\\": "database/schemas/",
-            "Database\\Blueprints\\": "database/blueprints/",
-            "Database\\Planters\\": "database/planters/"
+            "Database\\Schemas\\": "Database/Schemas/",
+            "Database\\Blueprints\\": "Database/Blueprints/",
+            "Database\\Planters\\": "Database/Planters/"
         }
     },
     "autoload-dev": {
