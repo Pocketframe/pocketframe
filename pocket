@@ -3,90 +3,13 @@
 
 define('BASE_PATH', __DIR__ . '/');
 require BASE_PATH . 'vendor/autoload.php';
-
-
-function showCodeContext(string $file, int $lineNumber, int $context = 5): string
-{
-  if (!file_exists($file)) return '';
-
-  $lines = file($file);
-  $start = max(0, $lineNumber - $context - 1);
-  $end = min(count($lines), $lineNumber + $context);
-
-  $output = "\n\n\033[1mCODE CONTEXT:\033[0m\n";
-  for ($i = $start; $i < $end; $i++) {
-    $lineNum = $i + 1;
-    $code = rtrim($lines[$i]);
-
-    if ($lineNum === $lineNumber) {
-      $output .= sprintf(
-        "  \033[31m➔ %4d\033[0m  %s\n",
-        $lineNum,
-        $code
-      );
-    } else {
-      $output .= sprintf(
-        "  \033[90m%4d\033[0m  %s\n",
-        $lineNum,
-        $code
-      );
-    }
-  }
-  return $output;
-}
-
-function formatStackFrame(array $frame, int $index): string
-{
-  $file = $frame['file'] ?? '[internal]';
-  $line = $frame['line'] ?? '0';
-  $class = $frame['class'] ?? '';
-  $type = $frame['type'] ?? '';
-  $function = $frame['function'] ?? '';
-
-  return sprintf(
-    "\n  \033[0;90m#%d\033[0m %s%s%s()",
-    $index,
-    $class,
-    $type,
-    $function,
-  ) . sprintf(
-    "\n    \033[0;33m%s:%d\033[0m",
-    $file,
-    $line
-  );
-}
-
-
-set_exception_handler(function (\Throwable $e) {
-  if (php_sapi_name() === 'cli') {
-    $errorTitle = "\033[1;31m" . get_class($e) . "\033[0m";
-    $message = "\033[1;37m" . $e->getMessage() . "\033[0m";
-    $fileLine = "\033[0;33m" . $e->getFile() . ':' . $e->getLine() . "\033[0m";
-
-    // Build error header
-    $output = "\n  {$errorTitle}";
-    $output .= "\n  {$message}";
-    $output .= "\n  \033[0;90m└─ \033[0m{$fileLine}";
-
-    // Add code snippet
-    $output .= showCodeContext($e->getFile(), $e->getLine());
-
-    // Add stack trace
-    $output .= "\n\n\033[1mSTACK TRACE:\033[0m";
-    foreach ($e->getTrace() as $index => $frame) {
-      $output .= formatStackFrame($frame, $index);
-    }
-
-    // Add debug info
-    $output .= "\n\033[0;90m[" . date('Y-m-d H:i:s') . "] PHP " . PHP_VERSION . "\033[0m\n";
-
-    fwrite(STDERR, $output);
-    exit(1);
-  }
-});
-
-
-
 require BASE_PATH . 'bootstrap.php';
 
-new \Pocketframe\Console\Kernel($argv);
+use Pocketframe\Container\Container;
+use Pocketframe\Console\Kernel;
+
+// Retrieve Kernel from the container (it is now a singleton).
+$kernel = Container::getInstance()->get(Kernel::class);
+
+// Pass CLI arguments to Kernel's handle() method.
+$kernel->handle($_SERVER['argv']);
