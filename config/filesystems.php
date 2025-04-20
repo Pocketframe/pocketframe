@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * Filesystem configuration file
+ *
+ * This file contains the filesystem configuration settings for the application.
+ * It uses environment variables to set the connection parameters.
+ *
+ * @package Pocketframe
+ */
 return [
   /**
    * Default Filesystem Disk
@@ -22,6 +30,13 @@ return [
       'driver' => 'local',
       'root'   => storage_path('app'),
     ],
+
+    /**
+     * Public Storage Link
+     *
+     * This disk is used to store files that are publicly accessible.
+     */
+    'public_link' => 'public/store',
 
     /**
      * Public Storage Disk

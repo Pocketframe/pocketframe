@@ -5,4 +5,11 @@ define('BASE_PATH', __DIR__ . '/');
 require BASE_PATH . 'vendor/autoload.php';
 require BASE_PATH . 'bootstrap.php';
 
-new \Pocketframe\Console\Kernel($argv);
+use Pocketframe\Container\Container;
+use Pocketframe\Console\Kernel;
+
+// Retrieve Kernel from the container (it is now a singleton).
+$kernel = Container::getInstance()->get(Kernel::class);
+
+// Pass CLI arguments to Kernel's handle() method.
+$kernel->handle($_SERVER['argv']);

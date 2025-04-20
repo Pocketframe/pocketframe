@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+use Pocketframe\Container\App;
+use Pocketframe\Database\DB;
+use Pocketframe\Sessions\SessionManager;
+
 const BASE_PATH = __DIR__ . '/';
 require BASE_PATH . 'vendor/autoload.php';
 require base_path('bootstrap.php');
@@ -11,13 +15,12 @@ ini_set('display_startup_errors', '1');
 ini_set('error_log', base_path('logs/pocketframe.log'));
 
 
-
-use Pocketframe\Container\App;
-use Pocketframe\Database\DB;
-
 $app = new App($container, $router);
+
+SessionManager::start();
 
 DB::setContainer($container);
 $databaseInstance = DB::getInstance();
+
 
 $app->run();

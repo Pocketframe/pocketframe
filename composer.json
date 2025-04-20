@@ -1,22 +1,48 @@
 {
+  "$schema": "https://getcomposer.org/schema.json",
     "name": "pocketframe/application",
-    "description": "PocketFrame application skeleton",
+    "description": "Pocketframe is a lightweight yet powerful PHP framework designed to simplify modern web application development. With its intuitive structure, elegant syntax, and modular approach, Pocketframe helps developers build scalable, high-performance applications effortlessly.",
     "type": "project",
+    "keywords": [
+        "pocketframe",
+        "framework"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.2",
-        "ext-pdo": "*",
         "pocketframe/framework": "dev-main"
     },
+    "require-dev": {
+        "fakerphp/faker": "^2.0.x-dev",
+    "pestphp/pest": "^3.8",
+    "phpunit/phpunit": "^11.5",
+    "phpunit/php-code-coverage": "^11.0",
+    "mockery/mockery": "^1.6"
+    },
     "autoload": {
-         "files": [
+        "files": [
             "config/database.php",
             "config/app.php",
             "app/helpers.php"
         ],
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Database\\Blueprints\\": "database/blueprints/",
+            "Database\\Planters\\": "database/planters/"
+        },
+        "classmap": [
+          "database/schemas/"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
         }
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ]
     },
     "authors": [
         {
@@ -24,5 +50,11 @@
             "email": "asabawilliamdk@yahoo.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
 }
