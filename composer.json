@@ -13,7 +13,11 @@
         "pocketframe/framework": "dev-main"
     },
     "require-dev": {
-        "fakerphp/faker": "^2.0.x-dev"
+        "fakerphp/faker": "^2.0.x-dev",
+    "pestphp/pest": "^3.8",
+    "phpunit/phpunit": "^11.5",
+    "phpunit/php-code-coverage": "^11.0",
+    "mockery/mockery": "^1.6"
     },
     "autoload": {
         "files": [
@@ -47,5 +51,10 @@
         }
     ],
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
 }
