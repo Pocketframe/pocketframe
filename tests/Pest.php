@@ -25,8 +25,19 @@ pest()->extend(Tests\TestCase::class)->in('Feature');
 */
 
 expect()->extend('toBeOne', function () {
-    return $this->toBe(1);
+  return $this->toBe(1);
 });
+
+/*
+|--------------------------------------------------------------------------
+| Plugins
+|--------------------------------------------------------------------------
+|
+| You can use plugins to extend the functionality of Pest.
+|
+*/
+
+require_once __DIR__ . '/Plugins/RefreshDatabase.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -41,5 +52,6 @@ expect()->extend('toBeOne', function () {
 
 function something()
 {
-    // ..
+  // ..
 }
+
